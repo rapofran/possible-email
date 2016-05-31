@@ -24,7 +24,9 @@ module PossibleEmail
     fail InvalidNameFormat, "Name arguments were not formatted correctly #{[@first_name, @last_name, *@domain].inspect}" unless valid_names?
 
     permutations = Permutator.call(@first_name, @last_name, @domain)
-    RapportiveRequester.request(permutations)
+
+    permutations
+    # RapportiveRequester.request(permutations)
   end
 
   def find_profile(*emails)
